@@ -50,3 +50,23 @@ const knight = {
 };
 
 partyMembers.push(fighter, cleric, knight);
+const role = partyMembers[0].role;
+
+// switch (role) {
+//   case 'cleric': {
+//     console.log('cleric took damage');
+//     break;
+//   }
+//   case 'knight': {
+//     console.log('knight took damage');
+//     break;
+//   }
+//   case 'fighter': {
+//     console.log('fighter took damage');
+//     break;
+//   }
+//   default: {
+//     console.log('every one took damage.');
+//     break;
+//   }
+// }
