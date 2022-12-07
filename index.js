@@ -1,3 +1,4 @@
+'use strict';
 import { halberd, morningstar, shortsword } from './weapons.js';
 
 const partyMembers = [];
@@ -70,3 +71,29 @@ const role = partyMembers[0].role;
 //     break;
 //   }
 // }
+function reduceHealth(health, damage, name) {
+  const lefterOverHealth = health - damage;
+  if (lefterOverHealth > 0) {
+    console.log(
+      `your ${name} took ${damage} points of damage and now has ${lefterOverHealth} points of health left`
+    );
+  } else {
+    console.log(
+      `your ${name} took ${damage} points of damage and now has died`
+    );
+  }
+}
+function damageGen(healthPoints) {
+  return Math.ceil(Math.random() * (healthPoints * 0.5) + 1);
+}
+function fatigueGen(stamina) {
+  return Math.ceil(Math.random() * (stamina * 0.5) + 1);
+}
+const damage = damageGen(knight.healthPoints);
+const fatigue = fatigueGen(knight.stamina);
+
+function bigAttack(health, stamina, damage, fatigue) {
+  const lefterOverHealth = health - damage;
+  const lefterOverStamina = stamina - fatigue;
+  return { lefterOverHealth, lefterOverStamina };
+}
