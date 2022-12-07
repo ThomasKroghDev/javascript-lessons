@@ -97,3 +97,7 @@ function bigAttack(health, stamina, damage, fatigue) {
   const lefterOverStamina = stamina - fatigue;
   return { lefterOverHealth, lefterOverStamina };
 }
+
+function status() {
+  console.log('');
+}
