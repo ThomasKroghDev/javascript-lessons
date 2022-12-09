@@ -49,7 +49,6 @@ const knight = {
   healthPoints: 230,
   stamina: 145,
 };
-
 partyMembers.push(fighter, cleric, knight);
 const role = partyMembers[0].role;
 
@@ -97,7 +96,7 @@ function bigAttack(health, stamina, damage, fatigue) {
   const lefterOverStamina = stamina - fatigue;
   return { lefterOverHealth, lefterOverStamina };
 }
+const getLastPartyMember = (party) => party[party.length - 1];
 
-function status() {
-  console.log('');
-}
+const LastPartyMember = getLastPartyMember(partyMembers);
+console.log(LastPartyMember);
