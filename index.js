@@ -1,5 +1,6 @@
 'use strict';
 import { halberd, morningstar, shortsword } from './weapons.js';
+const paragraph = document.getElementById('information');
 
 const partyMembers = [];
 
@@ -99,4 +100,3 @@ function bigAttack(health, stamina, damage, fatigue) {
 const getLastPartyMember = (party) => party[party.length - 1];
 
 const LastPartyMember = getLastPartyMember(partyMembers);
-console.log(LastPartyMember);
