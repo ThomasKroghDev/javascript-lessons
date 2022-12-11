@@ -18,6 +18,7 @@ const fighter = {
   inventory: ['rations', 'half empty health potion', 'turn undead scroll'],
   healthPoints: 200,
   stamina: 75,
+  isDead: false,
 };
 
 const cleric = {
@@ -34,6 +35,7 @@ const cleric = {
   inventory: ['rations', 'bandages', 'map', 'symbol of faith'],
   healthPoints: 175,
   stamina: 27,
+  isDead: false,
 };
 const knight = {
   role: 'knight',
@@ -49,6 +51,15 @@ const knight = {
   inventory: ['rations', 'house crest', 'dagger', 'symbol of faith', 'journal'],
   healthPoints: 230,
   stamina: 145,
+  isDead: false,
+  calcAttack: function () {
+    const baseDamage = damageGen(this.healthPoints);
+    const weaponDamage = Math.ceil(
+      Math.random() * (this.stamina * this.rightHand.damage * 0.1) + 1
+    );
+    this.attackPower = weaponDamage + baseDamage;
+    return this.attackPower;
+  },
 };
 partyMembers.push(fighter, cleric, knight);
 const role = partyMembers[0].role;
@@ -99,4 +110,5 @@ function bigAttack(health, stamina, damage, fatigue) {
 }
 const getLastPartyMember = (party) => party[party.length - 1];
 
-const LastPartyMember = getLastPartyMember(partyMembers);
+// const LastPartyMember = getLastPartyMember(partyMembers);
+// console.log(partyMembers[2].inventory[1]);

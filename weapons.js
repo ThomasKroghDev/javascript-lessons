@@ -21,5 +21,6 @@ const halberd = {
   value: 75,
   weight: 22,
   attributes: ['length-advantage', { oneHandSwingCost: 30 }],
+  damage: 40,
 };
 export { halberd, morningstar, shortsword };
