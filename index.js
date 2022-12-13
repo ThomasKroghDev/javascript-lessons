@@ -109,6 +109,4 @@ function bigAttack(health, stamina, damage, fatigue) {
   return { lefterOverHealth, lefterOverStamina };
 }
 const getLastPartyMember = (party) => party[party.length - 1];
-
-// const LastPartyMember = getLastPartyMember(partyMembers);
-// console.log(partyMembers[2].inventory[1]);
+const items = [1, 2, 2, 2];
