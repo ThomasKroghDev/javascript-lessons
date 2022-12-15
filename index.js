@@ -110,3 +110,13 @@ function bigAttack(health, stamina, damage, fatigue) {
 }
 const getLastPartyMember = (party) => party[party.length - 1];
 const items = [1, 2, 2, 2];
+
+const temps = [1, 94, 65, 23, 'error', 9, 37, 100];
+function calcTempDiff(temperatures) {
+  let max = temperatures[0];
+  for (let index = 0; index < temperatures.length; index++) {
+    if (temperatures[index] > max) {
+      max = temperatures[index];
+    }
+  }
+}
