@@ -109,14 +109,49 @@ function bigAttack(health, stamina, damage, fatigue) {
   return { lefterOverHealth, lefterOverStamina };
 }
 const getLastPartyMember = (party) => party[party.length - 1];
-const items = [1, 2, 2, 2];
+const items = [1, -652, 2, 20];
 
 const temps = [1, 94, 65, 23, 'error', 9, 37, 100];
-function calcTempDiff(temperatures) {
-  let max = temperatures[0];
-  for (let index = 0; index < temperatures.length; index++) {
-    if (temperatures[index] > max) {
-      max = temperatures[index];
+function calcTempDiff(temperatures, temperatures2) {
+  const newtemps = temperatures.concat(temperatures2);
+  let max = newtemps[0];
+  for (let index = 0; index < newtemps.length; index++) {
+    if (typeof newtemps[index] !== 'number') continue;
+    if (newtemps[index] > max) {
+      max = newtemps[index];
     }
   }
+
+  let min = newtemps[0];
+  for (let index = 0; index < newtemps.length; index++) {
+    if (typeof newtemps[index] !== 'number') continue;
+    if (newtemps[index] < min) {
+      min = newtemps[index];
+    }
+  }
+  return max - min;
 }
+const measureKelvin = function () {
+  const measurement = {
+    type: 'temp',
+    unit: 'celsius',
+    // value: +prompt('Degrees celsius:'),
+    value: 10,
+  };
+  const kelvin = measurement.value + 273;
+
+  return kelvin;
+};
+
+const forecastedMaximumTemps = [17, 21, 23];
+
+function printForecast(arr) {
+  let output = '';
+  for (let index = 0; index < arr.length; index++) {
+    output = output + `... ${arr[index]}°C in ${index + 1} days ... `;
+  }
+
+  console.log(output);
+}
+printForecast(forecastedMaximumTemps);
+printForecast([12, 5, -5, 0, 4]);
